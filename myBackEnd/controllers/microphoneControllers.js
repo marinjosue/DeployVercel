@@ -1,6 +1,17 @@
 const pool = require('../config/db');
 
 const microphoneControllers = {
+  getAllMicrophone: async (req, res) => {
+    try {
+      const [microphones] = await pool.query('SELECT * FROM microphone');
+
+      res.status(200).json(microphones);
+    } catch (error) {
+      console.error('Error fetching microphones:', error);
+      res.status(500).json({ message: 'Server Error' });
+    }
+  },
+
   createMicrophone: async (req, res) => {
     try {
       const { serial_number, brand, model, pieces, is_new, price, purchase_date } = req.body;
