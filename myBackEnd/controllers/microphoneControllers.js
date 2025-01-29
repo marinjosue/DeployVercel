@@ -1,9 +1,10 @@
 const pool = require('../config/db');
 
 const microphoneControllers = {
+
   getAllMicrophone: async (req, res) => {
     try {
-      const [microphones] = await pool.query('SELECT * FROM microphone');
+      const [microphones] = await pool.query('SELECT * FROM microphones');
 
       res.status(200).json(microphones);
     } catch (error) {
