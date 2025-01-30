@@ -4,6 +4,6 @@ const microphoneController = require('../controllers/microphoneControllers');
 
 // Ruta para crear un nuevo micrófono
 router.post('/create', microphoneController.createMicrophone);
-router.post('/', microphoneController.getAllMicrophone);
+router.get('/', microphoneController.getAllMicrophone);
 
 module.exports = router;

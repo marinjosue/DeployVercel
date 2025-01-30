@@ -2,17 +2,7 @@ const pool = require('../config/db');
 
 const microphoneControllers = {
 
-  
-  getAllMicrophone: async (req, res) => {
-          try {
-            const [microphones] = await pool.query('SELECT * FROM microphone');
-              res.json(users);
-          } catch (error) {
-              res.status(500).json({ message: 'Error fetching users', error: error.message });
-          }
-      },
-
-  createMicrophone: async (req, res) => {
+    createMicrophone: async (req, res) => {
     try {
       const { serial_number, brand, model, pieces, is_new, price, purchase_date } = req.body;
 
@@ -44,7 +34,16 @@ const microphoneControllers = {
       console.error('Microphone Creation Error:', error);
       res.status(500).json({ message: 'Server Error' });
     }
-  }
+  },
+   getAllMicrophone: async (req, res) => {
+          try {
+            const [microphones] = await pool.query('SELECT * FROM microphone');
+              res.json(users);
+          } catch (error) {
+              res.status(500).json({ message: 'Error fetching users', error: error.message });
+          }
+      },
+
 };
 
 module.exports = microphoneControllers;
