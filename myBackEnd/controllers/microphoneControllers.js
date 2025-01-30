@@ -38,9 +38,9 @@ const microphoneControllers = {
    getAllMicrophone: async (req, res) => {
           try {
             const [microphones] = await pool.query('SELECT * FROM microphone');
-              res.json(users);
+              res.json(microphones);
           } catch (error) {
-              res.status(500).json({ message: 'Error fetching users', error: error.message });
+              res.status(500).json({ message: 'Error fetching microphones', error: error.message });
           }
       },
 
