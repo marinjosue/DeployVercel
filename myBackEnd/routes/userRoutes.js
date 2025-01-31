@@ -21,5 +21,6 @@ router.delete('/:id', userController.deleteUser);
 // Update password
 router.patch('/:id/password', userController.updatePassword);
 //
+router.get('/:id', userController.getVinilById);
 
 module.exports = router;

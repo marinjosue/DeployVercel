@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use('/api/users', userRoutes);
 app.use('/api/microphones', microphoneRoutes); 
-
+app.use('/api/vinil', userRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

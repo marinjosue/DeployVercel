@@ -4,7 +4,22 @@ const bcrypt = require('bcrypt');
 
 
 const userController = {
+    getVinilById: async (req, res) => {
+        try {
+            const [user] = await pool.query(
+                'SELECT id, model, brand, description, origin FROM vinyl WHERE id = ?',
+                [req.params.id]
+            );
 
+            if (user.length === 0) {
+                return res.status(404).json({ message: 'Vinyl not found' });
+            }
+
+            res.json(user[0]);
+        } catch (error) {
+            res.status(500).json({ message: 'Error fetching vinil', error: error.message });
+        }
+    },
     // Create new user
     createUser: async (req, res) => {
         try {
