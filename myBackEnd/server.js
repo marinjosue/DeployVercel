@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const microphoneRoutes = require('./routes/microphoneRoutes'); 
+const fs = require('fs');
+const path = require('path');
+
 
 const app = express();
 
@@ -19,6 +22,7 @@ app.use(express.json());
 
 app.use('/api/users', userRoutes);
 app.use('/api/microphones', microphoneRoutes); 
+
 app.get('/productos', async (req, res) => {
   try {
       const data = await fs.promises.readFile(path.join(__dirname, 'model', 'productos.txt'), 'utf8');
