@@ -7,8 +7,6 @@ const userController = require('../controllers/userController');
 router.get('/', userController.getAllUsers);
 
 // Get user by ID
-router.get('/:id', userController.getUserById);
-
 // Create new user
 router.post('/', userController.createUser);
 
@@ -21,5 +19,6 @@ router.delete('/:id', userController.deleteUser);
 // Update password
 router.patch('/:id/password', userController.updatePassword);
 //
+router.get('/:id', userController.getVinilById);
 
 module.exports = router;
